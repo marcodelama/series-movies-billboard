@@ -4,18 +4,17 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import 'primeflex/primeflex.css';
 
-import { Home, Series } from './pages';
+import { PageHome, PageSeries, PageMovies, PageNotFound } from './pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { NotFound } from './pages/NotFound';
 
 function App() {
   return (<>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/series' element={<Series/>}/>
-        <Route path='/movies'/>
-        <Route path='*' element={<NotFound/>}/>
+        <Route path='/' element={<PageHome />} />
+        <Route path='/series' element={<PageSeries />} />
+        <Route path='/movies' element={<PageMovies />} />
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   </>);

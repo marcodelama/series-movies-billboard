@@ -1,9 +1,9 @@
 import React from "react";
 import { Card } from 'primereact/card';
 import { Link } from "react-router-dom";
-import billboardBackgroud from '../assets/placeholder.png'
+import billboardBackgroud from '../../../assets/placeholder.png'
 
-export function CardCartelera({ title, subtitle }) {
+export default function CardOpciones({ title, subtitle }) {
     return (
         <div>
             <Link to={title === 'SERIES' ? '/series' : '/movies'}>

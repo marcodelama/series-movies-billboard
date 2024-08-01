@@ -1,7 +1,7 @@
 import React from "react";
-import { Header, Footer } from "../components";
+import { Header, Footer } from "../components/pure/Navegation";
 
-export function NotFound(){
+export function PageNotFound(){
     return(<>
         <Header/>
         <div className="bg-white h-30rem">
