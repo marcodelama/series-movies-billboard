@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Header, Footer } from "../pure/Navegation";
 import Cards from '../Cards'
 import data from '../../data/sample.json';
 import '../../styles/cartelera.css'
+import { endLoading, startLoading } from "../../redux/isLoadingSlice";
 
 export default function Cartelera({ programType }) {
+    const dispatch = useDispatch();
+
     const [filtroDiez, setFiltroDiez] = useState();
 
     const releaseYearTwentyTen = () => {
@@ -15,8 +19,20 @@ export default function Cartelera({ programType }) {
         setFiltroDiez(years)
     }
 
+    const fetchImages = async () => {
+        try {
+            await Promise.all([
+                releaseYearTwentyTen()
+            ])
+        }
+        finally {
+            dispatch(endLoading());
+        }
+    }
+
     useEffect(() => {
-        releaseYearTwentyTen();
+        dispatch(startLoading());
+        fetchImages()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
